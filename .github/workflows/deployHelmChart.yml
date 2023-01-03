@@ -46,7 +46,7 @@ jobs:
       if: ${{ inputs.DEPLOYMENT }}
       run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_ENV
 
-    - name: Set deployment name # if it's not helm/chart
+    - name: Set values path # if it's not helm/chart
       if: ${{ inputs.VALUES_LOCAL_PATH }}
       run: echo "VALUES_LOCAL_PATH=${{ inputs.VALUES_LOCAL_PATH }}" >> $GITHUB_ENV
 

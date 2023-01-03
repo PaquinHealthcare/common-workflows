@@ -48,9 +48,9 @@ jobs:
         then
           sed -i 's/{{ .Values.app_version }}/${{ inputs.RELEASE_REVISION }}/g' ${{ inputs.LOCAL_PATH }}/templates/deployment.yaml
         fi
-        if [[ -f ${{ inputs.LOCAL_PATH }}/templates/cronjobs.yaml ]]
+        if [[ -f ${{ inputs.LOCAL_PATH }}/templates/cronjob.yaml ]]
         then
-          sed -i 's/{{ .Values.app_version }}/${{ inputs.RELEASE_REVISION }}/g' ${{ inputs.LOCAL_PATH }}/templates/cronjobs.yaml
+          sed -i 's/{{ .Values.app_version }}/${{ inputs.RELEASE_REVISION }}/g' ${{ inputs.LOCAL_PATH }}/templates/cronjob.yaml
         fi
         cat ${{ inputs.LOCAL_PATH }}/Chart.yaml
         echo ${{ inputs.HELM_CHART_REPO }}/${{ env.DEPLOYMENT }} |sed 's/./& /g'
