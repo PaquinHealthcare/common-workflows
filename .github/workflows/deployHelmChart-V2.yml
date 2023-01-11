@@ -27,10 +27,10 @@ on:
         type: string
       DRYRUN:
         required: false
-        type: boolean
+        type: string
       DEBUG:
         required: false
-        type: boolean
+        type: string
 
 name: Deploy helm chart
 
@@ -50,7 +50,7 @@ jobs:
       run: echo "HELM_CHART_REPO=${{ inputs.HELM_CHART_REPO }}" >> $GITHUB_ENV
 
     - name: Set deployment name # if is different from secrets.DEPLOYMENT
-      if: ${{ inputs.DEPLOYMENT }}
+      if: ${{ inputs.DEPLOYMENT }}ga
       run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_ENV
 
     - name: Set values path # if it's not helm/chart
