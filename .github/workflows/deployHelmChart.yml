@@ -25,6 +25,12 @@ on:
       VALUES:
         required: false
         type: string
+      DRYRUN:
+        required: false
+        type: boolean
+      DEBUG:
+        required: false
+        type: boolean
 
 name: Build and push docker image
 
@@ -89,4 +95,6 @@ jobs:
         values: ${{ env.VALUES }}
         config-files: ${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml
         chart-version: ${{ inputs.RELEASE_REVISION }}
+        dry-run: ${{ inputs.DRYRUN }}
+        debug: ${{ inputs.DEBUG }}
 
