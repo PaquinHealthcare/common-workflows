@@ -14,10 +14,10 @@ on:
         required: true
         type: string
       KUBE_NAMESPACE:
-        required: true
+        required: false
         type: string
       KUBE_CLUSTER:
-        required: true
+        required: false
         type: string
       DEPLOYMENT:
         required: true
