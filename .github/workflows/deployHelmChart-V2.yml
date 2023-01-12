@@ -42,6 +42,7 @@ env:
 
 jobs:
   reusable_workflow_job:
+    name: Deploy Chart
     runs-on: ubuntu-latest
     environment: ${{ inputs.ENVIRONMENT }}
     steps:
