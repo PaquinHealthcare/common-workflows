@@ -47,19 +47,19 @@ jobs:
     steps:
     - name: Set chart repo name
       if: ${{ inputs.HELM_CHART_REPO }}
-      run: echo "HELM_CHART_REPO=${{ inputs.HELM_CHART_REPO }}" >> $GITHUB_ENV
+      run: echo "HELM_CHART_REPO=${{ inputs.HELM_CHART_REPO }}" >> $GITHUB_OUTPUT
 
     - name: Set deployment name # if is different from secrets.DEPLOYMENT
-      if: ${{ inputs.DEPLOYMENT }}ga
-      run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_ENV
+      if: ${{ inputs.DEPLOYMENT }}
+      run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_OUTPUT
 
     - name: Set values path # if it's not helm/chart
       if: ${{ inputs.VALUES_LOCAL_PATH }}
-      run: echo "VALUES_LOCAL_PATH=${{ inputs.VALUES_LOCAL_PATH }}" >> $GITHUB_ENV
+      run: echo "VALUES_LOCAL_PATH=${{ inputs.VALUES_LOCAL_PATH }}" >> $GITHUB_OUTPUT
 
     - name: Set values
       if: ${{ inputs.VALUES }}
-      run: echo "VALUES=${{ inputs.VALUES }}" >> $GITHUB_ENV
+      run: echo "VALUES=${{ inputs.VALUES }}" >> $GITHUB_OUTPUT
 
     - name: Checkout
       uses: actions/checkout@v3
