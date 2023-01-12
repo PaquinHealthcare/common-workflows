@@ -36,5 +36,5 @@ jobs:
         args: '{\"channel\":\"${{ inputs.SLACK_CHANNEL }}\",
           \"text\":\"\r\n\r\n---------------------\r\n:disappointed: Failed deploy: Project *${{ env.DEPLOYMENT }}*\r\n
           Tag/Commit version: *${{ inputs.RELEASE_REVISION }}*\r\n
-          Environment: *${{ inputs.ENVIRONMENT }}*-native\r\n
+          Environment: *${{ inputs.ENVIRONMENT }}*\r\n
           Launched by: *${{ github.actor }}*\"}'
