@@ -71,13 +71,13 @@ jobs:
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
 
     - name: Helm add repo
-      uses: WyriHaximus/github-action-helm3@v2
+      uses: MartinQuesada/github-action-helm3@v2
       with: 
         exec: helm repo add ${{ env.DEPLOYMENT }} ${{ inputs.HELM_CHART_REPO }}/${{ env.DEPLOYMENT }}
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
 
     - name: Helm push chart
-      uses: WyriHaximus/github-action-helm3@v2
+      uses: MartinQuesada/github-action-helm3@v2
       with: 
         exec: helm s3 push --relative --force ./${{ env.DEPLOYMENT }}-${{ inputs.RELEASE_REVISION }}.tgz ${{ env.DEPLOYMENT }}
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
