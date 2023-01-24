@@ -27,13 +27,13 @@ jobs:
       if: ${{ inputs.DEPLOYMENT != '' }}
       run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_ENV
 
-    - name: Get master branch name
-      run: echo "BRANCH=$(git branch -r |grep -Eo 'main|master' |head -1)"
-
     - name: Checkout
       uses: actions/checkout@v3
       with:
         ref: ${{ env.BRANCH }}
+
+    - name: Switch to master/main branch name
+      run: git switch $(git branch -r |grep -Eo 'main|master' |head -1)
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
