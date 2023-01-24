@@ -60,24 +60,24 @@ jobs:
         echo ${{ inputs.HELM_CHART_REPO }}/${{ env.DEPLOYMENT }} |sed 's/./& /g'
 
     - name: Install s3 helm plugin
-      uses: MartinQuesada/github-action-helm3@v2
+      uses: WyriHaximus/github-action-helm3@v2
       with: 
         exec: helm plugin install https://github.com/hypnoglow/helm-s3.git
 
     - name: Helm package chart
-      uses: MartinQuesada/github-action-helm3@v2
+      uses: WyriHaximus/github-action-helm3@v2
       with: 
         exec: helm package ${{ inputs.LOCAL_PATH }}
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
 
     - name: Helm add repo
-      uses: MartinQuesada/github-action-helm3@v2
+      uses: WyriHaximus/github-action-helm3@v2
       with: 
         exec: helm repo add ${{ env.DEPLOYMENT }} ${{ inputs.HELM_CHART_REPO }}/${{ env.DEPLOYMENT }}
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
 
     - name: Helm push chart
-      uses: MartinQuesada/github-action-helm3@v2
+      uses: WyriHaximus/github-action-helm3@v2
       with: 
         exec: helm s3 push --relative --force ./${{ env.DEPLOYMENT }}-${{ inputs.RELEASE_REVISION }}.tgz ${{ env.DEPLOYMENT }}
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
