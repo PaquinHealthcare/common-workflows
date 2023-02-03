@@ -65,7 +65,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        ref: ${{ inputs.Version }}
+        ref: ${{ inputs.RELEASE_REVISION }}
    
     - name: Install s3 helm plugin
       uses: WyriHaximus/github-action-helm3@v2
