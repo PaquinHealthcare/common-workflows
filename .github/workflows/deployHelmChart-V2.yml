@@ -32,7 +32,7 @@ on:
         required: false
         type: string
 
-name: Deploy helm chart
+name: Deploy helm chart V2
 
 env:
   DEPLOYMENT: ${{ inputs.DEPLOYMENT }}
