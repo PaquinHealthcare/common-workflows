@@ -69,12 +69,14 @@ jobs:
 
     - name: Get values from master if not exists in tag
       run: |
-        BRANCH=$(git branch -r |grep -Eo 'master|main' |uniq)
-        echo $BRANCH
-        if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml" ]
-        then
-          git switch $BRANCH
-        fi
+        #BRANCH=$(git branch -r |grep -Eo 'master|main' |uniq)
+        #echo $BRANCH
+        git branch -r
+        exit 127
+        #if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml" ]
+        #then
+        #  git switch $BRANCH
+        #fi
    
     - name: Install s3 helm plugin
       uses: WyriHaximus/github-action-helm3@v2
