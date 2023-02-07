@@ -32,7 +32,7 @@ on:
         required: false
         type: string
 
-name: Deploy helm chart V2
+name: Deploy helm chart V2  s
 
 env:
   DEPLOYMENT: ${{ inputs.DEPLOYMENT }}
@@ -71,7 +71,7 @@ jobs:
       run: |
         if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml" ]
         then
-          if [ $(git switch master) != 0 ]
+          if [[ $(git switch master) != 0 ]]
           then
             git switch main
           fi
