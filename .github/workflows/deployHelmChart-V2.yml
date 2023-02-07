@@ -69,7 +69,7 @@ jobs:
 
     - name: Get values from master if not exists in tag
       run: |
-        if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml"]
+        if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml" ]
         then
           git switch master
         fi
