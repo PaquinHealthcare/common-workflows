@@ -71,7 +71,8 @@ jobs:
       run: |
         if [ ! -f "${{ env.VALUES_LOCAL_PATH }}/env/values-${{ inputs.ENVIRONMENT }}.yaml" ]
         then
-          git switch $(git branch -r |grep -Eo 'master|main' |uniq)        fi
+          git switch $(git branch -r |grep -Eo 'master|main' |uniq)
+        fi
    
     - name: Install s3 helm plugin
       uses: WyriHaximus/github-action-helm3@v2
