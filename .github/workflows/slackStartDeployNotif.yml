@@ -33,9 +33,8 @@ jobs:
     - name: Notify slack
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"${{ inputs.SLACK_CHANNEL }}\",
-        \"text\":\"\r\n\r\n---------------------\r\n:construction: Starting deploy: Project *${{ env.DEPLOYMENT }}*\r\n
+        args: '{\"channel\":\"${{ inputs.SLACK_CHANNEL }}\",\"text\":\"\r\n\r\n---------------------\r\n:construction: Starting deploy: Project *${{ env.DEPLOYMENT }}*\r\n
         Tag version: *${{ inputs.RELEASE_REVISION }}*\r\n
-        Environment: *${{ inputs.ENVIRONMENT }}*
-        Launched by: *${{ inputs.GITHUB_ACTOR }}*\
-        \r\n--- (:candle:)\"}'
+        Environment: *${{ inputs.ENVIRONMENT }}*\r\n
+        Launched by: *${{ inputs.GITHUB_ACTOR }}*\r\n
+        --- (:candle:)\"}'
