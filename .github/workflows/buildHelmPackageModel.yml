@@ -15,7 +15,7 @@ on:
         type: string
       FORCE:
         required: false
-        type: boolean
+        type: string
 
 name: Build Helm Package
 
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Force check
-      if: ${{ inputs.FORCE != '' }}
+      if: ${{ inputs.FORCE == 'true' }}
       run: echo "FORCE_OPT=--force" >> $GITHUB_ENV
       
     - name: Set deployment name # if is different from secrets.DEPLOYMENT
