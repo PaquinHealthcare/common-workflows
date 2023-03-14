@@ -13,6 +13,9 @@ on:
       DEPLOYMENT:
         required: false
         type: string
+      FORCE:
+        required: false
+        type: string
 
 name: Build Helm Package
 
@@ -23,6 +26,8 @@ jobs:
   reusable_workflow_job:
     runs-on: ubuntu-latest
     steps:
+    - name: Force check
+      run: echo $FORCE
     - name: Set deployment name # if is different from secrets.DEPLOYMENT
       if: ${{ inputs.DEPLOYMENT != '' }}
       run: echo "DEPLOYMENT=${{ inputs.DEPLOYMENT }}" >> $GITHUB_ENV
