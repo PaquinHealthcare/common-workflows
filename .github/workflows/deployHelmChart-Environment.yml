@@ -84,7 +84,7 @@ jobs:
         exec: helm plugin install https://github.com/hypnoglow/helm-s3.git
 
     - name: Deploy chart
-      uses: peymanmortazavi/eks-helm-deploy@v2
+      uses: MartinQuesada/github-action-helm3@v3
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
