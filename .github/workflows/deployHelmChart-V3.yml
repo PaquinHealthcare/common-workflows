@@ -77,7 +77,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
    
     - name: Install s3 helm plugin
-      uses: WyriHaximus/github-action-helm3@v2
+      uses: WyriHaximus/github-action-helm3@v3
       with: 
         exec: helm plugin install https://github.com/hypnoglow/helm-s3.git
         kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
