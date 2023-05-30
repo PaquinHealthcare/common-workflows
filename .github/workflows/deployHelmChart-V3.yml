@@ -80,6 +80,7 @@ jobs:
       uses: WyriHaximus/github-action-helm3@v2
       with: 
         exec: helm plugin install https://github.com/hypnoglow/helm-s3.git
+        kubeconfig: '${{ secrets.KUBE_CONFIG_GROKIT_DEV }}'
 
     - name: Deploy chart
       uses: MartinQuesada/eks-helm-deploy-action@v3
